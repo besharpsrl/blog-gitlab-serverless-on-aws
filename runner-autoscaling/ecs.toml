@@ -1,0 +1,17 @@
+LogLevel = "info" 
+LogFormat = "text" 
+ 
+[Fargate] 
+ Cluster = "acme-gitlab-RUNNER_TAGS-cluster" 
+ Region = "eu-west-1" 
+ Subnet = "SUBNET"
+ SecurityGroup = "SECURITY_GROUP_ID"
+ TaskDefinition = "gitlab-runner-RUNNER_TAGS-task" 
+ EnablePublicIP = true 
+ 
+[TaskMetadata] 
+ Directory = "/opt/gitlab-runner/metadata" 
+ 
+[SSH] 
+ Username = "root" 
+ Port = 22

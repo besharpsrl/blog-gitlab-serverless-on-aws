@@ -1,0 +1,32 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowRunTask",
+            "Effect": "Allow",
+            "Action": [
+                "ecs:RunTask",
+                "ecs:ListTasks",
+                "ecs:StartTask",
+                "ecs:StopTask",
+                "ecs:ListContainerInstances",
+                "ecs:DescribeTasks"
+            ],
+            "Resource": [
+                "arn:aws:ecs:eu-west-1:[AWS_ACCOUNT_ID]:task/acme-gitlab-cluster/*",
+                "arn:aws:ecs:eu-west-1:[AWS_ACCOUNT_ID]:cluster/acme-gitlab-cluster",
+                "arn:aws:ecs:eu-west-1:[AWS_ACCOUNT_ID]:task-definition/*:*",
+                "arn:aws:ecs:*:[AWS_ACCOUNT_ID]:container-instance/*/*"
+            ]
+        },
+        {
+            "Sid": "AllowListTasks",
+            "Effect": "Allow",
+            "Action": [
+                "ecs:ListTaskDefinitions",
+                "ecs:DescribeTaskDefinition"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
